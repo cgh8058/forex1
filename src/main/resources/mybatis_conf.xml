@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<!-- 给一个类型起别名，在映射文件中可以使用这个别名 -->
+		<package name="cn.cgh.entity"/>
+	</typeAliases>
+	<mappers>
+		<!-- <mapper resource="com/zr/xml/UserMapper.xml"/> 
+		<mapper resource="com/zr/interface1/UserMapper.xml"/> 
+		-->
+		<mapper resource="mapperxml/UserMapper.xml"/>
+		<mapper resource="mapperxml/ManagerMapper.xml"/>
+		<mapper resource="mapperxml/AccountMapper.xml"/>
+	</mappers>
+	
+</configuration>

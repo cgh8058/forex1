@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="cn.cgh.dao.AccountDao">
+	<!-- namespace要写成接口的名字    -->
+	<!-- id写成接口中对应的方法名 -->
+	<insert id="addAccount" parameterType="Account">
+		insert into account values(null,#{balance},#{equlty},#{freeMagin},#{userId})
+	</insert>
+	<delete id="deleteAccountById">
+		delete from account where accountId=#{id}
+	</delete>
+	<update id="updateAccount">
+		update account set balance=#{balance},equlty=#{equlty},freeMagin=#{freeMagin} where accountId=#{accountId}
+	</update>
+</mapper>

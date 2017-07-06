@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="cn.cgh.dao.UserDao">
+	<!-- namespace要写成接口的名字    -->
+	<!-- id写成接口中对应的方法名 -->
+	<insert id="addUser" parameterType="User">
+		insert into user values(null,#{username},null,#{platform},#{isOnline},#{allowedFollow},#{signals},#{accNum})
+	</insert>
+	<delete id="deleteUserById">
+		delete from user where userId=#{id}
+	</delete>
+	<update id="updateUser">
+		update user set allowedFollow=#{allowedFollow},signals=#{signals} where userId=#{userId}
+	</update>
+	<select id="getUserById" resultMap="userResMap">
+		select * from user where userId=#{id}
+	</select>
+	<select id="getUsersByPage" resultMap="userResMap">
+		select * from user limit #{index},#{pageSize}
+	</select>
+	<select id="getCount" resultType="java.lang.Integer">
+		select count(*) from user
+	</select>
+	
+	<resultMap type="User" id="userResMap">
+		<id property="userId" column="userId"/>
+		<result property="username" column="username"/>
+		<result property="platform" column="platform"/>
+		<result property="isOnline" column="isOnline"/>
+		<result property="allowedFollow" column="allowedFollow"/>
+		<result property="signals" column="signals"/>
+		<result property="registerTime" column="registerTime"/>
+		<result property="accNum" column="accNum"/>
+	</resultMap>
+</mapper>
